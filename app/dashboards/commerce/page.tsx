@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
-
+import React from 'react'
 
 import {
   Card,
@@ -11,11 +9,12 @@ import {
   CardFooter
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-
+import { Button } from '@/components/ui/button'
 import EcommerceDashboard from '@/components/dashboards/EcommerceDashboard';
 
-export default function Home() {
+type Props = {}
+
+function CommerceDashboard({}: Props) {
   return (
     
     <div className='flex-1 space-y-4 p-4 md:p-8 pt-6	'>
@@ -56,6 +55,7 @@ export default function Home() {
     </Card>
   </div>
 
-    
   )
 }
+
+export default CommerceDashboard

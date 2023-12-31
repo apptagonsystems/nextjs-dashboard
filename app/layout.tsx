@@ -2,6 +2,20 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+import Header from "@/components/header";
+import HeaderMobile from "@/components/headerMobile";
+import SideBarIcons from '@/components/SideBarIcons';
+import SideNavItem from '@/components/sidebar/SideNavItem';
+import { IoSettingsSharp } from "react-icons/io5";
+import NavBar from '@/components/NavBar';
+import SidebarMulti from '@/components/SidebarMulti';
+import SidebarItem from '@/components/sidebar/SidebarItem';
+
+// ICONS
+import { SidebarProvider } from '@/contexts/SidebarContext';
+import { SIDE_NAV_ITEMS } from '@/utils/constants';
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +30,37 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* <Header/>
+        <HeaderMobile/> */}
+        <SidebarProvider>
+        <NavBar />
+
+        <div className='flex h-screen overflow-hidden dark:text-white dark:bg-black group-hover:bg-gray-200 group-hover:dark:bg-zinc-900 bg-gray-50'>
+          {/* <SideBarIcons>
+            <SideNavItem title='HOME' path='/' icon={{icon:<IoSettingsSharp/>, fillIcon:<IoSettingsSharp/>}} isSideBarOpen={false}/>
+          </SideBarIcons>  */}
+          <SidebarMulti>
+
+            {SIDE_NAV_ITEMS.map(function( data) {
+              return (
+                <SidebarItem icon={data.icon?.icon} title={data.title} path={data.path} active={false} alert={false}/>
+
+              );
+            })}
+
+          </SidebarMulti>
+          {/* <main className="flex-1 pt-16 overflow-x-hidden overflow-y-auto "> */}
+
+          <main className='grow pt-8 overflow-scroll'>
+            {children}
+          </main>
+        </div>
+
+        </SidebarProvider>
+
+        
+      </body>
     </html>
   )
 }
