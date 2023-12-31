@@ -42,8 +42,8 @@ export const SIDE_NAV_ITEMS: SideNavItemType[] = [
         subMenu: true,
         subMenuItems: [
             {
-                title:"All",
-                path:"/projects",
+                title:"Commerce",
+                path:"/dashboards/commerce",
             },
             {
                 title:"Web Design",

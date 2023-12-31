@@ -13,6 +13,8 @@ import profileImg from '@/assets/3-min.jpg'
 import { FaUpRightFromSquare } from "react-icons/fa6";
 import { FaGithubSquare } from "react-icons/fa";
 import { SidebarContext, SidebarContextType } from '@/contexts/SidebarContext';
+import { NavDropdownMenu } from './navbar/NavDropdownMenu';
+
 
 
 type Props = {}
@@ -42,10 +44,6 @@ export default function NavBar({}: Props) {
                 </div>
                 {/* RIGHT SIDE OF NAVBAR */} 
                 <div className='flex items-center gap-x-2'>
-                    <button className='py-1.5 px-4 rounded-full border border-gray-200'>Upload</button>
-                    <button className='rounded-full border border-gray-200'>
-                        <Image src={profileImg} alt='Profile' className='object-cover h-8 w-8 rounded-full'/>
-                    </button>
                     <span className='flex items-center gap-x-1'>
                         <FaUpRightFromSquare className='w-5 h-5'/>
                         <span className='text-sm leading-none hover:underline hover:cursor-pointer'>1,331</span>
@@ -54,6 +52,12 @@ export default function NavBar({}: Props) {
                         <FaGithubSquare className='w-5 h-5'/>
                         <span className='text-sm leading-none hover:underline hover:cursor-pointer'>1,331</span>
                     </span>
+                    <button className='py-1.5 px-4 rounded-full border border-gray-200'>Upload</button>
+                    <NavDropdownMenu>
+                        <button className='rounded-full border border-gray-200'>
+                            <Image src={profileImg} alt='Profile' className='object-cover h-8 w-8 rounded-full'/>
+                        </button>
+                    </NavDropdownMenu>
                 </div>
             </header>
         </div>

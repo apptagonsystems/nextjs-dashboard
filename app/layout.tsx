@@ -44,7 +44,7 @@ export default function RootLayout({
 
             {SIDE_NAV_ITEMS.map(function( data) {
               return (
-                <SidebarItem icon={data.icon?.icon} title={data.title} path={data.path} active={false} alert={false}/>
+                <SidebarItem icon={data.icon?.icon} title={data.title} path={data.path} active={false} alert={false} subMenu={data.subMenu} subMenuItems={data.subMenuItems}/>
 
               );
             })}

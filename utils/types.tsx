@@ -20,4 +20,6 @@ export type SidebarItemType = {
     icon: React.ReactNode;
     active: boolean;
     alert: boolean;
+    subMenu?: boolean;
+    subMenuItems?: SideNavItemType[];
 }
